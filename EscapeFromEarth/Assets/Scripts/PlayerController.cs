@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float forwardInput;
     public float zRange = 30;
+    public float xRange = 30;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,14 @@ public class PlayerController : MonoBehaviour
        if (transform.position.z > zRange)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
+        }
+       if (transform.position.x < -xRange)
+        {
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+       if (transform.position.x > xRange)
+        {
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
     }
 }
